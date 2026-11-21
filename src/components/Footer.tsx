@@ -41,12 +41,14 @@ export default function Footer() {
 
   return (
     <footer id="contact" ref={root} className="relative overflow-hidden bg-ink text-mist">
-      <img
-        src="/images/hd/footer.jpg"
-        alt=""
-        className="bg-photo pointer-events-none absolute inset-x-0 bottom-0 h-56 w-full object-cover opacity-35"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/70" />
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src="/images/hd/footer.jpg"
+          alt=""
+          className="h-full w-full object-cover object-center opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink/95" />
+      </div>
 
       <div className="relative mx-auto grid max-w-[1240px] gap-10 px-4 py-14 sm:gap-12 sm:px-5 sm:py-20 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-24">
         <div className="ft-col">
@@ -118,15 +120,17 @@ export default function Footer() {
 
       <div id="blog" className="ft-col relative mx-auto max-w-[1240px] px-4 pb-10 sm:px-5 sm:pb-12 lg:px-8">
         <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Highlights</h2>
-        <ul className="mt-4 space-y-2 text-base font-medium text-mist">
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
           {posts.map((post) => (
-            <li key={post}>
-              <a href="#blog" className="transition hover:text-gold">
-                {post}
-              </a>
-            </li>
+            <a
+              key={post}
+              href="#services"
+              className="rounded-2xl border border-white/10 bg-panel/70 px-4 py-4 text-sm font-medium leading-[1.5] text-mist backdrop-blur-sm transition duration-300 hover:border-gold/40 hover:text-gold"
+            >
+              {post}
+            </a>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="relative border-t border-white/5 bg-panel/80 backdrop-blur-sm">

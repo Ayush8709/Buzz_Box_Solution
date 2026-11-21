@@ -7,6 +7,8 @@ import { reveal } from "../lib/animate";
 export default function Work() {
   const root = useRef<HTMLElement>(null);
   const [active, setActive] = useState<CaseStudy | null>(null);
+  const topRow = work.slice(0, 3);
+  const bottomRow = work.slice(3);
 
   useGsapContext(root, (gsap) => {
     reveal(gsap, ".work-head > *", {
@@ -16,7 +18,7 @@ export default function Work() {
       scrollTrigger: { trigger: root.current, start: "top 78%" },
     });
     reveal(gsap, ".work-card", {
-      y: 48,
+      y: 40,
       duration: 0.8,
       stagger: 0.08,
       scrollTrigger: { trigger: ".work-grid", start: "top 82%" },
@@ -47,6 +49,41 @@ export default function Work() {
     };
   }, [active]);
 
+  const renderCard = (item: CaseStudy, index: number) => (
+    <button
+      key={item.title}
+      type="button"
+      onClick={() => setActive(item)}
+      className="work-card group flex w-full max-w-[400px] flex-col text-left"
+    >
+      <div className="relative overflow-hidden rounded-[4px]">
+        <div className="aspect-[4/3] overflow-hidden">
+          <img
+            src={item.image}
+            alt=""
+            className="bg-photo h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-105"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 border border-white/15 transition duration-300 group-hover:border-gold/50" />
+        <span className="absolute right-3 bottom-3 rounded-sm bg-ink/80 px-2.5 py-1 text-[11px] tracking-[0.16em] text-gold uppercase backdrop-blur-sm">
+          0{index + 1} / 0{work.length}
+        </span>
+      </div>
+
+      <div className="mt-4 flex flex-1 flex-col border-t border-white/10 pt-4">
+        <p className="text-[11px] tracking-[0.2em] text-gold uppercase">{item.kind}</p>
+        <h3 className="mt-2 font-serif text-[24px] leading-[1.15] font-medium tracking-[0.3px] text-paper transition group-hover:text-gold sm:text-[26px]">
+          {item.title}
+        </h3>
+        <p className="mt-2 text-sm font-medium text-mist">{item.place}</p>
+        <span className="mt-5 inline-flex w-fit items-center gap-2 border border-white/20 px-4 py-2 text-[12px] tracking-[0.14em] text-paper uppercase transition duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink">
+          View details
+          <span aria-hidden="true">→</span>
+        </span>
+      </div>
+    </button>
+  );
+
   return (
     <section id="work" ref={root} className="bg-[#0c0e11] px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1240px]">
@@ -61,25 +98,15 @@ export default function Work() {
           </p>
         </div>
 
-        <div className="work-grid mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4 xl:gap-5">
-          {work.map((item) => (
-            <button
-              key={item.title}
-              type="button"
-              onClick={() => setActive(item)}
-              className="work-card media-card card-glow group relative min-h-[300px] overflow-hidden rounded-[18px] text-left sm:min-h-[400px] sm:rounded-[22px]"
-            >
-              <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="relative z-[2] flex h-full min-h-[300px] flex-col justify-end p-5 sm:min-h-[400px] sm:p-6">
-                <p className="text-sm font-medium tracking-[0.3px] text-mist">{item.kind}</p>
-                <h3 className="mt-2 text-[20px] font-medium tracking-[-0.4px] text-paper sm:text-[22px]">{item.title}</h3>
-                <p className="mt-2 text-base font-medium text-mist">{item.place}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm text-gold">
-                  View details <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </button>
-          ))}
+        <div className="work-grid mt-12 space-y-10 sm:mt-16">
+          <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7 lg:gap-y-10">
+            {topRow.map((item, index) => renderCard(item, index))}
+          </div>
+          {bottomRow.length > 0 ? (
+            <div className="flex flex-wrap justify-center gap-8 lg:gap-7">
+              {bottomRow.map((item, index) => renderCard(item, index + 3))}
+            </div>
+          ) : null}
         </div>
       </div>
 
