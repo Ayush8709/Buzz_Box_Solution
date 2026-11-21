@@ -66,7 +66,7 @@ export default function Work() {
               key={item.title}
               type="button"
               onClick={() => setActive(item)}
-              className="work-card media-card group relative min-h-[300px] overflow-hidden rounded-[18px] text-left sm:min-h-[400px] sm:rounded-[22px]"
+              className="work-card media-card card-glow group relative min-h-[300px] overflow-hidden rounded-[18px] text-left sm:min-h-[400px] sm:rounded-[22px]"
             >
               <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
               <div className="relative z-[2] flex h-full min-h-[300px] flex-col justify-end p-5 sm:min-h-[400px] sm:p-6">
@@ -107,7 +107,7 @@ export default function Work() {
             <h3 className="mt-3 font-serif text-[26px] font-medium tracking-[0.7px] text-paper sm:text-[32px]">
               {active.title}
             </h3>
-            <img src={active.image} alt="" className="mt-5 h-44 w-full rounded-2xl object-cover sm:h-56" />
+            <img src={active.image} alt="" className="bg-photo mt-5 h-44 w-full rounded-2xl object-cover sm:h-56" />
             <dl className="mt-6 space-y-5 text-base leading-[1.7] font-medium text-mist">
               <div>
                 <dt className="font-medium text-gold">Objective</dt>

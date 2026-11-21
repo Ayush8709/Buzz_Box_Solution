@@ -23,7 +23,8 @@ export default function Services() {
 
   return (
     <section id="services" ref={root} className="relative bg-ink px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
-      <div className="ambient right-0 top-20 h-64 w-64 bg-gold/8" />
+      <div className="ambient right-0 top-20 h-72 w-72 bg-gold/16" />
+      <div className="ambient ambient-delay -left-20 bottom-10 h-64 w-64 bg-gold/10" />
       <div className="relative mx-auto max-w-[1240px]">
         <div className="svc-head">
           <div className="section-line mb-5" />
@@ -40,7 +41,7 @@ export default function Services() {
             <a
               key={service.title}
               href="#contact"
-              className={`svc-card media-card group relative min-h-[280px] overflow-hidden rounded-[18px] sm:min-h-[360px] sm:rounded-[22px] md:min-h-[450px] ${
+              className={`svc-card media-card card-glow group relative min-h-[280px] overflow-hidden rounded-[18px] sm:min-h-[360px] sm:rounded-[22px] md:min-h-[450px] ${
                 index < 3 ? "md:col-span-2" : "md:col-span-3"
               }`}
             >
@@ -50,7 +51,7 @@ export default function Services() {
                 <h3 className="text-[20px] font-medium tracking-[-0.4px] text-paper uppercase sm:text-[22px] md:text-[24px]">
                   {service.title}
                 </h3>
-                <ul className="mt-3 space-y-1.5 text-sm font-medium tracking-[0.2px] text-paper/95">
+                <ul className="mt-3 space-y-1.5 text-sm font-medium tracking-[0.2px] text-paper">
                   {service.points.map((point) => (
                     <li key={point} className="flex items-center gap-2">
                       <span className="h-px w-3 bg-gold" />

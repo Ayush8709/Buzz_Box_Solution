@@ -55,13 +55,13 @@ export default function Header() {
         open
           ? "border-b border-white/5 bg-ink"
           : solid
-            ? "border-b border-white/5 bg-ink/80 shadow-[0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl"
-            : "bg-gradient-to-b from-black/60 to-transparent"
+            ? "border-b border-white/5 bg-ink/70 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "bg-gradient-to-b from-black/25 via-black/10 to-transparent"
       }`}
     >
       <div className="mx-auto flex h-[70px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[78px] sm:gap-6 sm:px-5 lg:px-8">
         <a href="#top" className="header-brand group min-w-0 shrink leading-none" aria-label="Buzz Box home" onClick={closeMenu}>
-          <span className="block font-serif text-[20px] tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[22px] sm:tracking-[0.16em]">
+          <span className="text-glow block font-serif text-[20px] tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[22px] sm:tracking-[0.16em]">
             BUZZ BOX
           </span>
           <span className="mt-1 block truncate text-[10px] font-medium tracking-[0.22em] text-mist sm:text-[11px] sm:tracking-[0.28em]">
@@ -96,7 +96,7 @@ export default function Header() {
                     <div className="flex items-center lg:block">
                       <a
                         href={item.href}
-                        className="nav-link flex flex-1 items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper/90 transition hover:text-gold lg:py-2"
+                        className="nav-link flex flex-1 items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper transition hover:text-gold lg:py-2"
                         onClick={closeMenu}
                       >
                         {item.label}
@@ -151,7 +151,7 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="nav-link flex items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper/90 transition hover:text-gold lg:py-2"
+                    className="nav-link flex items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper transition hover:text-gold lg:py-2"
                     onClick={closeMenu}
                   >
                     {item.label}
@@ -162,7 +162,7 @@ export default function Header() {
           })}
           <a
             href="#contact"
-            className="header-nav-item btn-glow mt-3 inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-[15px] font-bold tracking-[-0.3px] text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#e8c09a] lg:mt-0 lg:ml-4"
+            className="header-nav-item btn-glow mt-3 inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-[15px] font-bold tracking-[-0.3px] text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0d0ae] lg:mt-0 lg:ml-4"
             onClick={closeMenu}
           >
             Book Now

@@ -12,6 +12,7 @@ import Work from "./components/Work";
 export default function App() {
   return (
     <>
+      <div className="page-glow" aria-hidden="true" />
       <Header />
       <main>
         <Hero />

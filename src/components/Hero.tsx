@@ -67,21 +67,24 @@ export default function Hero() {
             key={src}
             src={src}
             alt=""
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out ${
+            className={`bg-photo absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out ${
               slide === index % heroSlides.length ? "opacity-100 kenburns" : "opacity-0"
             }`}
           />
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-black/45" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/15 to-transparent" />
+      <div className="ambient -left-16 top-24 h-72 w-72 bg-gold/20" />
+      <div className="ambient ambient-delay right-[-4rem] bottom-24 h-80 w-80 bg-gold/14" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-start px-4 pt-[110px] pb-24 sm:px-5 sm:pt-[130px] sm:pb-28 lg:px-8 lg:pt-[150px] lg:pb-32">
         <h1 className="sr-only">Buzz Box Events and Solutions</h1>
         <div className="hero-line section-line mb-4 sm:mb-5" />
         <p className="hero-title font-serif text-[30px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]">
-          <span className="text-gold">Unique Idea</span> And Great Vision
+          <span className="text-gold text-glow-soft">Unique Idea</span> And Great Vision
         </p>
         <p
           className="hero-word mt-1 overflow-hidden font-serif text-[30px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]"
@@ -91,27 +94,27 @@ export default function Hero() {
             {words[index]}
           </span>
         </p>
-        <p className="hero-copy mt-4 max-w-xl text-[14px] font-medium leading-[1.7] text-mist sm:mt-5 sm:text-base">
+        <p className="hero-copy mt-4 max-w-xl text-[14px] font-medium leading-[1.7] text-paper/90 sm:mt-5 sm:text-base">
           Buzz Box Events and Solutions. Wedding planner, corporate events, and birthday decor. Booking open for 26–27.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#contact"
-              className="hero-cta btn-glow inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-[15px] font-bold text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#e8c09a] min-[400px]:flex-none sm:px-6"
+              className="hero-cta btn-glow inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-[15px] font-bold text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0d0ae] min-[400px]:flex-none sm:px-6"
             >
               Book Now <span aria-hidden="true">↗</span>
             </a>
             <a
               href="#services"
-              className="hero-cta inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-[15px] font-medium text-paper backdrop-blur-sm transition duration-300 hover:border-gold hover:text-gold min-[400px]:flex-none sm:px-6"
+              className="hero-cta inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/35 bg-white/10 px-5 py-3 text-[15px] font-medium text-paper backdrop-blur-sm transition duration-300 hover:border-gold hover:text-gold min-[400px]:flex-none sm:px-6"
             >
               Explore Services
             </a>
           </div>
           <a
             href="tel:+918789081553"
-            className="hero-cta inline-flex items-center gap-2 px-1 text-[15px] font-medium text-mist transition hover:text-gold sm:px-2"
+            className="hero-cta inline-flex items-center gap-2 px-1 text-[15px] font-medium text-paper/85 transition hover:text-gold sm:px-2"
           >
             8789081553
           </a>
@@ -121,7 +124,7 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-6 z-10 mx-auto flex w-full max-w-[1240px] items-center justify-between px-4 sm:bottom-8 sm:px-5 lg:px-8">
         <a
           href="#milestones"
-          className="hero-scroll float-y inline-flex text-paper/70 transition hover:text-gold"
+          className="hero-scroll float-y inline-flex text-paper/90 transition hover:text-gold"
           aria-label="Scroll to milestones"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">

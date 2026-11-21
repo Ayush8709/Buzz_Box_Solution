@@ -30,7 +30,7 @@ export default function Brands() {
           {loop.map((label, index) => (
             <span
               key={`${label}-${index}`}
-              className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs font-medium tracking-[0.16em] text-mist uppercase transition hover:border-gold/50 hover:text-gold sm:px-6 sm:py-2.5 sm:text-sm sm:tracking-[0.18em]"
+              className="rounded-full border border-white/20 bg-white/[0.04] px-4 py-2 text-xs font-medium tracking-[0.16em] text-paper/85 uppercase transition hover:border-gold hover:text-gold sm:px-6 sm:py-2.5 sm:text-sm sm:tracking-[0.18em]"
             >
               {label}
             </span>

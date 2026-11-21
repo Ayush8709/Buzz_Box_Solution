@@ -39,15 +39,16 @@ export default function Why() {
   }, []);
 
   return (
-    <section id="about" ref={root} className="bg-ink px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
+    <section id="about" ref={root} className="relative overflow-hidden bg-ink px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
+      <div className="ambient -right-16 top-20 h-72 w-72 bg-gold/12" />
       <div className="mx-auto grid max-w-[1240px] items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
-        <div className="why-media relative min-h-[320px] overflow-hidden rounded-[22px] sm:min-h-[440px] sm:rounded-[28px] lg:min-h-[600px]">
+        <div className="why-media card-glow relative min-h-[320px] overflow-hidden rounded-[22px] sm:min-h-[440px] sm:rounded-[28px] lg:min-h-[600px]">
           <img
             src="/images/hd/why.jpg"
             alt="Event decor by Buzz Box"
-            className="why-img absolute inset-0 h-[115%] w-full object-cover will-change-transform"
+            className="why-img bg-photo absolute inset-0 h-[115%] w-full object-cover will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4 glass rounded-2xl p-4 sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
             <p className="text-xs tracking-[0.2em] text-gold uppercase">Buzz Box</p>
             <p className="mt-2 text-base font-medium text-paper sm:text-lg">Unique idea. Great vision.</p>

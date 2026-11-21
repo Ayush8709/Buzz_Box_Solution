@@ -50,8 +50,8 @@ export default function Testimonials() {
       ref={root}
       className="noise relative overflow-hidden bg-[#0c0e11] px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32"
     >
-      <div className="ambient -left-24 top-16 h-72 w-72 bg-gold/12" />
-      <div className="ambient -right-20 bottom-0 h-80 w-80 bg-gold/8" />
+      <div className="ambient -left-24 top-16 h-80 w-80 bg-gold/18" />
+      <div className="ambient ambient-delay -right-20 bottom-0 h-80 w-80 bg-gold/12" />
 
       <div className="relative mx-auto grid max-w-[1100px] items-center gap-8 sm:gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <div className="ts-left">

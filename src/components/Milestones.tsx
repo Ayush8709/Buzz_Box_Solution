@@ -45,10 +45,10 @@ export default function Milestones() {
       <img
         src="/images/hd/milestones.jpg"
         alt=""
-        className="ms-bg absolute inset-0 h-full w-full object-cover object-center will-change-transform"
+        className="ms-bg bg-photo absolute inset-0 h-full w-full object-cover object-center will-change-transform"
       />
-      <div className="absolute inset-0 bg-[#090b0d]/76" />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-transparent to-ink/60" />
+      <div className="absolute inset-0 bg-[#07090b]/62" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/10 to-ink/55" />
 
       <div className="relative mx-auto max-w-[1100px]">
         <div className="flex flex-col items-center">
