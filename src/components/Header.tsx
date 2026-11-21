@@ -49,9 +49,9 @@ export default function Header() {
   return (
     <header
       ref={root}
-      className="sticky top-0 z-[100] border-b border-white/10 bg-ink/95 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-[200] border-b border-white/10 bg-ink/95 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
     >
-      <div className="relative z-[110] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
+      <div className="relative z-[210] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
         <a
           href="#top"
           className="header-brand group min-w-0 shrink leading-none"
@@ -68,7 +68,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="relative z-[120] flex h-11 w-11 shrink-0 touch-manipulation flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="relative z-[220] flex h-11 w-11 shrink-0 touch-manipulation flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -100,7 +100,7 @@ export default function Header() {
           aria-label="Menu"
           className={`${
             open ? "flex" : "hidden"
-          } absolute inset-x-0 top-full z-[115] max-h-[calc(100svh-56px)] flex-col gap-0.5 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:max-h-[calc(100svh-62px)] sm:px-5 sm:py-5 lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
+          } absolute inset-x-0 top-full z-[215] max-h-[calc(100svh-56px)] flex-col gap-0.5 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:max-h-[calc(100svh-62px)] sm:px-5 sm:py-5 lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
         >
           {nav.map((item) => {
             const isOpen = expanded === item.label;
@@ -189,7 +189,7 @@ export default function Header() {
         <button
           type="button"
           aria-label="Close menu overlay"
-          className="fixed inset-0 z-[105] bg-black/50 lg:hidden"
+          className="fixed inset-0 z-[205] bg-black/50 lg:hidden"
           onClick={closeMenu}
         />
       ) : null}
