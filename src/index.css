@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -22,6 +23,11 @@ body {
   font-family: var(--font-sans);
   font-weight: 500;
   overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 ::selection {
@@ -120,22 +126,24 @@ img {
   position: relative;
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 6px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--color-gold), transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
+@media (min-width: 1024px) {
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-.nav-link:hover::after,
-.nav-link:focus-visible::after {
-  transform: scaleX(1);
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
 }
 
 .media-card {

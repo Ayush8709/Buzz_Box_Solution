@@ -28,7 +28,7 @@ export default function Footer() {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/90 to-ink" />
 
-      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 py-20 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-24">
+      <div className="relative mx-auto grid max-w-[1240px] gap-10 px-4 py-14 sm:gap-12 sm:px-5 sm:py-20 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-24">
         <div className="ft-col">
           <p className="font-serif text-[22px] font-medium tracking-[0.7px] text-gold">BUZZ BOX</p>
           <p className="mt-1 text-sm font-medium tracking-[0.3px] text-mist">EVENTS &amp; SOLUTIONS</p>
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div id="blog" className="ft-col relative mx-auto max-w-[1240px] px-5 pb-12 lg:px-8">
+      <div id="blog" className="ft-col relative mx-auto max-w-[1240px] px-4 pb-10 sm:px-5 sm:pb-12 lg:px-8">
         <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Highlights</h2>
         <ul className="mt-4 space-y-2 text-base font-medium text-mist">
           {posts.map((post) => (
@@ -110,15 +110,15 @@ export default function Footer() {
       </div>
 
       <div className="relative border-t border-white/5 bg-panel/80 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-[1240px] flex-col gap-2 px-5 py-4 text-xs text-mist md:flex-row md:items-center md:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-3 px-4 py-4 text-xs leading-relaxed text-mist sm:px-5 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© 2026 Buzz Box Events &amp; Solutions | All Rights Reserved.</p>
-          <p>
+          <p className="flex flex-wrap gap-x-2 gap-y-1">
             <a href="#services" className="transition hover:text-gold">Wedding Planner</a>
-            {" | "}
+            <span aria-hidden="true">|</span>
             <a href="#services" className="transition hover:text-gold">Corporate Event</a>
-            {" | "}
+            <span aria-hidden="true">|</span>
             <a href="#services" className="transition hover:text-gold">Birthday Decor</a>
-            {" | "}
+            <span aria-hidden="true">|</span>
             <a
               href="https://www.instagram.com/events_by_buzzbox/"
               className="transition hover:text-gold"

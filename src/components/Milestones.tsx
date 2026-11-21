@@ -41,7 +41,7 @@ export default function Milestones() {
   }, []);
 
   return (
-    <section id="milestones" ref={root} className="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-32">
+    <section id="milestones" ref={root} className="relative overflow-hidden px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
       <img
         src="/images/hd/milestones.jpg"
         alt=""
@@ -53,28 +53,28 @@ export default function Milestones() {
       <div className="relative mx-auto max-w-[1100px]">
         <div className="flex flex-col items-center">
           <div className="ms-line section-line mb-5" />
-          <h2 className="ms-title text-center font-serif text-[34px] font-medium tracking-[0.7px] text-paper capitalize md:text-[44px]">
+          <h2 className="ms-title text-center font-serif text-[28px] font-medium tracking-[0.7px] text-paper capitalize sm:text-[34px] md:text-[44px]">
             Our Celebrations
           </h2>
         </div>
 
-        <div className="ms-grid mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
+        <div className="ms-grid mt-10 grid grid-cols-2 gap-x-2 gap-y-8 sm:mt-16 sm:gap-y-10 md:grid-cols-4 md:gap-y-12">
           {stats.map((stat, index) => (
             <article
               key={stat.label}
               className={`ms-item text-center ${index > 0 ? "md:border-l md:border-gold/35" : ""}`}
             >
-              <div className="mx-auto max-w-[210px] rounded-2xl px-3 py-5 transition duration-500 hover:-translate-y-1.5 hover:bg-white/5">
-                <p className="font-display text-[40px] font-normal tracking-[0.3px] text-paper sm:text-[54px]">
+              <div className="mx-auto max-w-[210px] rounded-2xl px-2 py-4 transition duration-500 hover:-translate-y-1.5 hover:bg-white/5 sm:px-3 sm:py-5">
+                <p className="font-display text-[28px] font-normal tracking-[0.3px] text-paper sm:text-[40px] md:text-[54px]">
                   {stat.value}
                 </p>
-                <p className="mt-3 text-sm font-medium tracking-wide text-mist sm:text-base">{stat.label}</p>
+                <p className="mt-2 text-xs font-medium tracking-wide text-mist sm:mt-3 sm:text-sm md:text-base">{stat.label}</p>
               </div>
             </article>
           ))}
         </div>
 
-        <p className="ms-item mt-14 text-center text-sm tracking-wide text-mist">
+        <p className="ms-item mt-10 text-center text-sm tracking-wide text-mist sm:mt-14">
           Booking open for 26–27 ·{" "}
           <a className="text-gold transition hover:underline" href="tel:+918789081553">
             8789081553

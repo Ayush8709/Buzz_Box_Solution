@@ -48,25 +48,25 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={root}
-      className="noise relative overflow-hidden bg-[#0c0e11] px-5 py-24 lg:px-8 lg:py-32"
+      className="noise relative overflow-hidden bg-[#0c0e11] px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32"
     >
       <div className="ambient -left-24 top-16 h-72 w-72 bg-gold/12" />
       <div className="ambient -right-20 bottom-0 h-80 w-80 bg-gold/8" />
 
-      <div className="relative mx-auto grid max-w-[1100px] items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+      <div className="relative mx-auto grid max-w-[1100px] items-center gap-8 sm:gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <div className="ts-left">
           <div className="section-line mb-5" />
-          <h2 className="font-serif text-[40px] leading-[1.12] font-medium tracking-[0.7px] text-paper md:text-[48px]">
+          <h2 className="font-serif text-[30px] leading-[1.12] font-medium tracking-[0.7px] text-paper sm:text-[40px] md:text-[48px]">
             Unique Idea
             <br /> And Great Vision
           </h2>
-          <p className="mt-6 text-base font-medium text-gold">
+          <p className="mt-4 text-sm font-medium text-gold sm:mt-6 sm:text-base">
             Wedding planner · Corporate event · Birthday decor
           </p>
         </div>
 
-        <div className="ts-card glass rounded-[28px] p-7 shadow-[0_30px_80px_rgba(0,0,0,0.35)] md:p-10">
-          <blockquote ref={quoteRef} className="text-[17px] leading-[1.8] font-medium text-paper md:text-[19px]">
+        <div className="ts-card glass rounded-[22px] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:rounded-[28px] sm:p-7 md:p-10">
+          <blockquote ref={quoteRef} className="text-[15px] leading-[1.8] font-medium text-paper sm:text-[17px] md:text-[19px]">
             “{review.quote}”
           </blockquote>
           <div className="mt-8">

@@ -56,7 +56,11 @@ export default function Hero() {
   }, [index]);
 
   return (
-    <section id="top" ref={root} className="relative h-[100svh] min-h-[700px] overflow-hidden bg-ink">
+    <section
+      id="top"
+      ref={root}
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink sm:min-h-[700px]"
+    >
       <div className="hero-parallax absolute inset-0 scale-110 will-change-transform">
         {heroSlides.map((src, slide) => (
           <img
@@ -70,70 +74,75 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-black/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
 
-      <div className="absolute inset-x-0 bottom-10 z-10 mx-auto max-w-[1240px] px-5 sm:bottom-14 lg:bottom-20 lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-start px-4 pt-[110px] pb-24 sm:px-5 sm:pt-[130px] sm:pb-28 lg:px-8 lg:pt-[150px] lg:pb-32">
         <h1 className="sr-only">Buzz Box Events and Solutions</h1>
-        <div className="hero-line section-line mb-5" />
-        <p className="hero-title font-serif text-[36px] leading-[1.05] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]">
+        <div className="hero-line section-line mb-4 sm:mb-5" />
+        <p className="hero-title font-serif text-[30px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]">
           <span className="text-gold">Unique Idea</span> And Great Vision
         </p>
         <p
-          className="hero-word mt-1 overflow-hidden font-serif text-[36px] leading-[1.05] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]"
+          className="hero-word mt-1 overflow-hidden font-serif text-[30px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]"
           aria-live="polite"
         >
           <span key={words[index]} className="hero-word-inner inline-block">
             {words[index]}
           </span>
         </p>
-        <p className="hero-copy mt-5 max-w-xl text-[15px] font-medium leading-[1.7] text-mist sm:text-base">
+        <p className="hero-copy mt-4 max-w-xl text-[14px] font-medium leading-[1.7] text-mist sm:mt-5 sm:text-base">
           Buzz Box Events and Solutions. Wedding planner, corporate events, and birthday decor. Booking open for 26–27.
         </p>
-        <div className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
-          <a
-            href="#contact"
-            className="hero-cta btn-glow inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-[15px] font-bold text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#e8c09a]"
-          >
-            Book Now <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            href="#services"
-            className="hero-cta inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-[15px] font-medium text-paper backdrop-blur-sm transition duration-300 hover:border-gold hover:text-gold"
-          >
-            Explore Services
-          </a>
+        <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="hero-cta btn-glow inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-[15px] font-bold text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#e8c09a] min-[400px]:flex-none sm:px-6"
+            >
+              Book Now <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="#services"
+              className="hero-cta inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-[15px] font-medium text-paper backdrop-blur-sm transition duration-300 hover:border-gold hover:text-gold min-[400px]:flex-none sm:px-6"
+            >
+              Explore Services
+            </a>
+          </div>
           <a
             href="tel:+918789081553"
-            className="hero-cta inline-flex items-center gap-2 px-2 text-[15px] font-medium text-mist transition hover:text-gold"
+            className="hero-cta inline-flex items-center gap-2 px-1 text-[15px] font-medium text-mist transition hover:text-gold sm:px-2"
           >
             8789081553
           </a>
         </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-6 z-10 mx-auto flex w-full max-w-[1240px] items-center justify-between px-4 sm:bottom-8 sm:px-5 lg:px-8">
         <a
           href="#milestones"
-          className="hero-scroll float-y mt-8 inline-flex text-paper/70 transition hover:text-gold"
+          className="hero-scroll float-y inline-flex text-paper/70 transition hover:text-gold"
           aria-label="Scroll to milestones"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
             <path d="M6 9l6 6 6-6" />
           </svg>
         </a>
-      </div>
-
-      <div className="absolute right-5 bottom-8 z-10 hidden gap-2 sm:flex lg:right-8">
-        {heroSlides.map((_, slide) => (
-          <button
-            key={slide}
-            type="button"
-            aria-label={`Show slide ${slide + 1}`}
-            onClick={() => setIndex(slide)}
-            className={`hero-dot h-1.5 rounded-full transition-all duration-500 ${
-              slide === index % heroSlides.length ? "w-9 bg-gold" : "w-3 bg-white/35 hover:bg-white/60"
-            }`}
-          />
-        ))}
+        <div className="flex gap-2">
+          {heroSlides.map((_, slide) => (
+            <button
+              key={slide}
+              type="button"
+              aria-label={`Show slide ${slide + 1}`}
+              onClick={() => setIndex(slide)}
+              className={`hero-dot h-1.5 rounded-full transition-all duration-500 ${
+                slide === index % heroSlides.length
+                  ? "w-7 bg-gold sm:w-9"
+                  : "w-2.5 bg-white/35 hover:bg-white/60 sm:w-3"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

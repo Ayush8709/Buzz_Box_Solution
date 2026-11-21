@@ -29,7 +29,7 @@ export default function App() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with us on whatsapp"
-        className="pulse-ring fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_rgba(37,211,102,0.4)] transition duration-300 hover:scale-110"
+        className="pulse-ring fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_rgba(37,211,102,0.4)] transition duration-300 hover:scale-110 sm:right-5 sm:bottom-5 sm:h-14 sm:w-14"
       >
         <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
           <path

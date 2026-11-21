@@ -48,30 +48,30 @@ export default function Work() {
   }, [active]);
 
   return (
-    <section id="work" ref={root} className="bg-[#0c0e11] px-5 py-24 lg:px-8 lg:py-32">
+    <section id="work" ref={root} className="bg-[#0c0e11] px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1240px]">
         <div className="work-head">
           <div className="section-line mb-5" />
-          <h2 className="font-serif text-[34px] font-medium tracking-[0.7px] text-paper capitalize md:text-[44px]">
+          <h2 className="font-serif text-[28px] font-medium tracking-[0.7px] text-paper capitalize sm:text-[34px] md:text-[44px]">
             Our Work
           </h2>
-          <p className="mt-3 max-w-xl text-base text-mist">
+          <p className="mt-3 max-w-xl text-[15px] text-mist sm:text-base">
             Selected celebrations — open any card for the full story.
           </p>
         </div>
 
-        <div className="work-grid mt-14 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+        <div className="work-grid mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4 xl:gap-5">
           {work.map((item) => (
             <button
               key={item.title}
               type="button"
               onClick={() => setActive(item)}
-              className="work-card media-card group relative min-h-[400px] overflow-hidden rounded-[22px] text-left"
+              className="work-card media-card group relative min-h-[300px] overflow-hidden rounded-[18px] text-left sm:min-h-[400px] sm:rounded-[22px]"
             >
               <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="relative z-[2] flex h-full min-h-[400px] flex-col justify-end p-6">
+              <div className="relative z-[2] flex h-full min-h-[300px] flex-col justify-end p-5 sm:min-h-[400px] sm:p-6">
                 <p className="text-sm font-medium tracking-[0.3px] text-mist">{item.kind}</p>
-                <h3 className="mt-2 text-[22px] font-medium tracking-[-0.4px] text-paper">{item.title}</h3>
+                <h3 className="mt-2 text-[20px] font-medium tracking-[-0.4px] text-paper sm:text-[22px]">{item.title}</h3>
                 <p className="mt-2 text-base font-medium text-mist">{item.place}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm text-gold">
                   View details <span aria-hidden="true">→</span>
@@ -84,11 +84,11 @@ export default function Work() {
 
       {active ? (
         <div
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-black/75 p-4 backdrop-blur-md sm:items-center"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-black/75 p-3 backdrop-blur-md sm:items-center sm:p-4"
           onClick={() => setActive(null)}
         >
           <article
-            className="work-modal-panel max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-white/10 bg-panel p-6 shadow-2xl md:p-9"
+            className="work-modal-panel max-h-[90svh] w-full max-w-2xl overflow-y-auto rounded-[22px] border border-white/10 bg-panel p-5 shadow-2xl sm:rounded-[28px] sm:p-6 md:p-9"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
@@ -97,17 +97,17 @@ export default function Work() {
               </p>
               <button
                 type="button"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-xl leading-none text-mist transition hover:border-gold hover:text-paper"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-xl leading-none text-mist transition hover:border-gold hover:text-paper"
                 onClick={() => setActive(null)}
                 aria-label="Close"
               >
                 ×
               </button>
             </div>
-            <h3 className="mt-3 font-serif text-[32px] font-medium tracking-[0.7px] text-paper">
+            <h3 className="mt-3 font-serif text-[26px] font-medium tracking-[0.7px] text-paper sm:text-[32px]">
               {active.title}
             </h3>
-            <img src={active.image} alt="" className="mt-5 h-56 w-full rounded-2xl object-cover" />
+            <img src={active.image} alt="" className="mt-5 h-44 w-full rounded-2xl object-cover sm:h-56" />
             <dl className="mt-6 space-y-5 text-base leading-[1.7] font-medium text-mist">
               <div>
                 <dt className="font-medium text-gold">Objective</dt>
