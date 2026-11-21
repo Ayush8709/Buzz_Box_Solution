@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --color-gold: #dfad7d;
+  --color-ink: #090b0d;
+  --color-panel: #111519;
+  --color-mist: #b8b6b2;
+  --color-paper: #f5f2ef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #090b0d;
+  color: #f5f2ef;
+  font-family: var(--font-sans);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ken {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.kenburns {
+  animation: ken 18s ease-in-out infinite alternate;
+}
