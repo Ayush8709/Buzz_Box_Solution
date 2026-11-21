@@ -14,7 +14,6 @@ export default function App() {
     <>
       <div className="page-glow" aria-hidden="true" />
       <Header />
-      <div className="h-[56px] sm:h-[62px]" aria-hidden="true" />
       <main>
         <Hero />
         <Milestones />

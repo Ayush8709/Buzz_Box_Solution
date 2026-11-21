@@ -31,16 +31,6 @@ export default function Hero() {
       .from(".hero-scroll", { y: -4, duration: 0.35 }, "-=0.15")
       .from(".hero-dot", { scale: 0.7, duration: 0.3, stagger: 0.05 }, "-=0.2");
 
-    gsap.to(".hero-parallax", {
-      yPercent: 12,
-      ease: "none",
-      scrollTrigger: {
-        trigger: root.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
   }, []);
 
   useEffect(() => {
@@ -59,16 +49,16 @@ export default function Hero() {
     <section
       id="top"
       ref={root}
-      className="relative flex min-h-[520px] flex-col overflow-hidden bg-ink sm:min-h-[700px] lg:min-h-[100svh]"
+      className="relative flex h-auto min-h-[520px] flex-col overflow-hidden bg-ink md:h-svh md:min-h-svh md:max-h-svh"
     >
-      <div className="hero-parallax absolute inset-0 scale-105 will-change-transform sm:scale-110">
+      <div className="absolute inset-0">
         {heroSlides.map((src, slide) => (
           <img
             key={src}
             src={src}
             alt=""
-            className={`bg-photo absolute inset-0 h-full w-full object-cover object-[center_30%] transition-opacity duration-[1400ms] ease-out sm:object-center ${
-              slide === index % heroSlides.length ? "opacity-100 kenburns" : "opacity-0"
+            className={`bg-photo absolute inset-0 h-full w-full object-cover object-[center_30%] transition-opacity duration-[1400ms] ease-out md:object-center ${
+              slide === index % heroSlides.length ? "opacity-100" : "opacity-0"
             }`}
           />
         ))}
@@ -77,10 +67,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-black/15" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 to-transparent sm:h-36" />
-      <div className="ambient -left-16 top-24 hidden h-72 w-72 bg-gold/20 sm:block" />
-      <div className="ambient ambient-delay right-[-4rem] bottom-24 hidden h-80 w-80 bg-gold/14 sm:block" />
+      <div className="ambient -left-16 top-24 hidden h-72 w-72 bg-gold/20 md:block" />
+      <div className="ambient ambient-delay right-[-4rem] bottom-24 hidden h-80 w-80 bg-gold/14 md:block" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-end px-4 pt-8 pb-16 sm:justify-start sm:px-5 sm:pt-14 sm:pb-28 lg:px-8 lg:pt-20 lg:pb-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-end px-4 pt-[72px] pb-16 sm:px-5 sm:pb-20 md:justify-center md:pt-[78px] md:pb-24 lg:px-8 lg:pb-28">
         <h1 className="sr-only">Buzz Box Events and Solutions</h1>
         <div className="hero-line section-line mb-3 sm:mb-5" />
         <p className="hero-title font-serif text-[28px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]">

@@ -6,6 +6,26 @@ export default function Header() {
   const root = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [solid, setSolid] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("top");
+      if (!hero) {
+        setSolid(window.scrollY > 40);
+        return;
+      }
+      const headerH = root.current?.offsetHeight ?? 62;
+      setSolid(hero.getBoundingClientRect().bottom <= headerH);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -49,7 +69,11 @@ export default function Header() {
   return (
     <header
       ref={root}
-      className="fixed inset-x-0 top-0 z-[200] border-b border-white/10 bg-ink/95 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+      className={`fixed inset-x-0 top-0 z-[200] transition-all duration-300 ${
+        open || solid
+          ? "border-b border-white/10 bg-ink shadow-[0_8px_28px_rgba(0,0,0,0.35)]"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
       <div className="relative z-[210] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
         <a
