@@ -50,13 +50,14 @@ export default function Work() {
   return (
     <section id="work" ref={root} className="bg-[#0c0e11] px-4 py-16 sm:px-5 sm:py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-[1240px]">
-        <div className="work-head">
+        <div className="work-head flex flex-col items-center text-center">
           <div className="section-line mb-5" />
           <h2 className="font-serif text-[28px] font-medium tracking-[0.7px] text-paper capitalize sm:text-[34px] md:text-[44px]">
             Our Work
           </h2>
-          <p className="mt-3 max-w-xl text-[15px] text-mist sm:text-base">
+          <p className="mt-3 max-w-2xl text-[15px] leading-[1.7] text-mist sm:text-base">
             Selected celebrations — open any card for the full story.
+            Each project shows how Buzz Box turns one idea into a complete setup: wedding, haldi, birthday, engagement, and more.
           </p>
         </div>
 

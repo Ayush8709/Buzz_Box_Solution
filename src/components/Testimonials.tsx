@@ -63,6 +63,14 @@ export default function Testimonials() {
           <p className="mt-4 text-sm font-medium text-gold sm:mt-6 sm:text-base">
             Wedding planner · Corporate event · Birthday decor
           </p>
+          <p className="mt-4 max-w-md text-[15px] leading-[1.75] font-medium text-mist sm:mt-5 sm:text-base">
+            Buzz Box builds every celebration from one clear idea — the mood, the room, and the people in it.
+            From weddings and corporate evenings to birthdays, haldi, engagement, and anniversary setups, the
+            plan and decor stay together so the day feels complete, not pieced together.
+          </p>
+          <p className="mt-3 max-w-md text-[15px] leading-[1.75] font-medium text-mist sm:text-base">
+            Booking is open for 26–27. Tell us the date and the feeling you want, and we shape the celebration from there.
+          </p>
         </div>
 
         <div className="ts-card glass rounded-[22px] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.35)] sm:rounded-[28px] sm:p-7 md:p-10">

@@ -63,37 +63,37 @@ export const stats = [
 export const reviews = [
   {
     quote:
-      "A wedding planned around one idea: the aisle, the mandap, the haldi, and the reception all speaking the same language.",
+      "A wedding planned around one idea: the aisle, the mandap, the haldi, and the reception all speaking the same language. Every detail — florals, light, seating, and stage — is built so the day feels continuous from the first welcome to the last dance.",
     name: "Wedding Planner",
     role: "Buzz Box | Wedding Decor",
   },
   {
     quote:
-      "Corporate evenings with a clear stage, a welcome that feels considered, and decor that keeps the brand in the room.",
+      "Corporate evenings with a clear stage, a welcome that feels considered, and decor that keeps the brand in the room. Guests walk into a space that looks hosted, not hired — from entry and backdrop to seating and soft lighting around the programme.",
     name: "Corporate Event",
     role: "Buzz Box | Corporate Decor",
   },
   {
     quote:
-      "Birthday setups that feel personal. Balloons, florals, and a backdrop made for the person being celebrated.",
+      "Birthday setups that feel personal. Balloons, florals, and a backdrop made for the person being celebrated — with a cake table, photo corner, and colours chosen for their story, not a ready package pulled from a list.",
     name: "Birthday Decor",
     role: "Buzz Box | Birthday Decor",
   },
   {
     quote:
-      "Haldi and mehendi in colour. Marigold, carnival canopies, and seating that keeps the ritual at the centre.",
+      "Haldi and mehendi in colour. Marigold, carnival canopies, and seating that keeps the ritual at the centre — bright, playful, and easy for family to gather around without losing the warmth of the ceremony.",
     name: "Haldi Mehendi",
     role: "Buzz Box | Carnival Haldi",
   },
   {
     quote:
-      "Engagement and reception decor with a floral arch, a lit aisle, and a stage the couple can actually stand in.",
+      "Engagement and reception decor with a floral arch, a lit aisle, and a stage the couple can actually stand in. Soft drapes, warm lights, and a clear path for photos so the evening feels elegant without becoming stiff.",
     name: "Engagement & Reception",
     role: "Buzz Box | Reception Decor",
   },
   {
     quote:
-      "Anniversary tables held with flowers, light, and a setting that feels like a private celebration, not a template.",
+      "Anniversary tables held with flowers, light, and a setting that feels like a private celebration, not a template. Intimate centrepieces, gentle lighting, and a quiet backdrop that lets the couple and their guests stay at the heart of the night.",
     name: "Anniversary Decor",
     role: "Buzz Box | Anniversary",
   },

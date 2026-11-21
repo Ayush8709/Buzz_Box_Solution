@@ -26,13 +26,14 @@ export default function Services() {
       <div className="ambient right-0 top-20 h-72 w-72 bg-gold/16" />
       <div className="ambient ambient-delay -left-20 bottom-10 h-64 w-64 bg-gold/10" />
       <div className="relative mx-auto max-w-[1240px]">
-        <div className="svc-head">
+        <div className="svc-head flex flex-col items-center text-center">
           <div className="section-line mb-5" />
           <h2 className="font-serif text-[30px] font-medium tracking-[0.7px] text-paper sm:text-[40px] md:text-[48px]">
             What We Do
           </h2>
-          <p className="mt-3 max-w-xl text-[15px] text-mist sm:text-base md:text-[17px]">
+          <p className="mt-3 max-w-2xl text-[15px] leading-[1.7] text-mist sm:text-base md:text-[17px]">
             Decor and planning for weddings, corporate evenings, birthdays, and celebrations in between.
+            From stage and florals to seating and backdrops, every setup is shaped around your date, mood, and room.
           </p>
         </div>
 
