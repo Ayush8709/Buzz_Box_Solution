@@ -3,27 +3,29 @@ export const nav = [
     label: "About Us",
     href: "#about",
     items: [
-      { label: "Our Team", href: "#about" },
-      { label: "Our Journey", href: "#milestones" },
-      { label: "Testimonials", href: "#testimonials" },
-      { label: "Blog", href: "#blog" },
+      { label: "Our Idea", href: "#about" },
+      { label: "Celebrations", href: "#milestones" },
+      { label: "What We Plan", href: "#testimonials" },
+      { label: "Highlights", href: "#blog" },
     ],
   },
   {
     label: "Services",
     href: "#services",
     items: [
-      { label: "Corporate Events", href: "#services" },
-      { label: "Exhibitions", href: "#services" },
-      { label: "Digital Marketing", href: "#services" },
+      { label: "Wedding Planner", href: "#services" },
+      { label: "Corporate Event", href: "#services" },
+      { label: "Birthday Decor", href: "#services" },
     ],
   },
   {
-    label: "CWE Originals",
+    label: "Decor",
     href: "#services",
     items: [
-      { label: "India Kids Fashion Week", href: "#services" },
-      { label: "Women Fun Fest", href: "#services" },
+      { label: "Haldi Mehendi", href: "#services" },
+      { label: "Engagement Decor", href: "#services" },
+      { label: "Reception Decor", href: "#services" },
+      { label: "Anniversary Decor", href: "#services" },
     ],
   },
   { label: "Portfolio", href: "#work" },
@@ -31,91 +33,97 @@ export const nav = [
     label: "Contact",
     href: "#contact",
     items: [
-      { label: "Contact Us", href: "#contact" },
-      { label: "Careers", href: "#contact" },
+      { label: "Call Us", href: "tel:+918789081553" },
+      { label: "Instagram", href: "https://www.instagram.com/events_by_buzzbox/" },
     ],
   },
 ];
 
-export const words = ["Events", "Exhibitions", "Fashion Shows", "Fun Fests"];
+export const words = [
+  "Weddings",
+  "Corporate Events",
+  "Birthday Decor",
+  "Haldi Mehendi",
+  "Engagements",
+];
+
+export const heroSlides = [
+  "/images/hd/hero-1.jpg",
+  "/images/hd/hero-2.jpg",
+  "/images/hd/hero-3.jpg",
+];
 
 export const stats = [
-  { value: 100, label: "Cities Across India" },
-  { value: 200, label: "Corporate Clients Served" },
-  { value: 2000, label: "Events executed" },
-  { value: 23, label: "Years of Industry Excellence" },
+  { value: "Weddings", label: "Wedding planner" },
+  { value: "Corporate", label: "Corporate events" },
+  { value: "Birthdays", label: "Birthday decor" },
+  { value: "26–27", label: "Booking open" },
 ];
 
 export const reviews = [
   {
     quote:
-      "As a Qatar-based company, our India launch was our first event, and finding the right partner was crucial. Craftworld did a fantastic job, from finding the perfect venue to conceptualising, designing, and executing the event. Their professionalism, commitment, and understanding made our first India experience smooth and memorable.",
-    name: "Ronnie Daniel",
-    role: "Doha Insurance | Product Launch",
+      "A wedding planned around one idea: the aisle, the mandap, the haldi, and the reception all speaking the same language.",
+    name: "Wedding Planner",
+    role: "Buzz Box | Wedding Decor",
   },
   {
     quote:
-      "We have known Craftworld for a long time. Their biggest strength is stall design, integrating technology and creating engaging experience centres in expo. What sets them apart is that they don’t just design concepts; they deliver them seamlessly across India and international markets like Dubai and Singapore, maintaining quality and execution standards. Keep it up.",
-    name: "Ruchi",
-    role: "Mitsui (MOL) | Marketing",
+      "Corporate evenings with a clear stage, a welcome that feels considered, and decor that keeps the brand in the room.",
+    name: "Corporate Event",
+    role: "Buzz Box | Corporate Decor",
   },
   {
     quote:
-      "Wiz was looking for an experienced event management company with a pan-India presence to execute five consecutive city events while maintaining consistent standards. Craftworld delivered exactly what we expected, managing everything from venue selection and logistics to stage production, sound, and lighting, ensuring seamless execution and consistent quality across all five cities.",
-    name: "Lauren Ginter",
-    role: "WIZ | Marketing APJ",
+      "Birthday setups that feel personal. Balloons, florals, and a backdrop made for the person being celebrated.",
+    name: "Birthday Decor",
+    role: "Buzz Box | Birthday Decor",
   },
   {
     quote:
-      "Managing MICE events across 10 cities requires precision and coordination. Craftworld has been a reliable partner in delivering seamless experiences.",
-    name: "Santosh Upadhyay",
-    role: "Vice President, BFIL | MICE",
+      "Haldi and mehendi in colour. Marigold, carnival canopies, and seating that keeps the ritual at the centre.",
+    name: "Haldi Mehendi",
+    role: "Buzz Box | Carnival Haldi",
   },
   {
     quote:
-      "Craftworld has been managing our exhibition stalls for several years, ensuring consistent quality, professional execution and dependable support every time.",
-    name: "Mayur Shinde",
-    role: "Fristam | Exhibition Stall Management",
+      "Engagement and reception decor with a floral arch, a lit aisle, and a stage the couple can actually stand in.",
+    name: "Engagement & Reception",
+    role: "Buzz Box | Reception Decor",
   },
   {
     quote:
-      "Craftworld successfully managed our conferences across 20 cities back-to-back, demonstrating exceptional coordination, commitment and operational excellence.",
-    name: "Manish Oberoi",
-    role: "Aditya Birla Group | Conference | 20 Cities",
-  },
-  {
-    quote:
-      "Craftworld delivered a memorable Diwali event with excellent planning, coordination and execution, creating an engaging experience for everyone.",
-    name: "Siddharth Jain",
-    role: "Nayara Energy | Marketing",
+      "Anniversary tables held with flowers, light, and a setting that feels like a private celebration, not a template.",
+    name: "Anniversary Decor",
+    role: "Buzz Box | Anniversary",
   },
 ];
 
 export const services = [
   {
-    title: "Events",
-    image: "/images/svc-events.webp",
-    points: ["Experiential Events", "Live Performances", "Brand Experiences"],
+    title: "Weddings",
+    image: "/images/hd/weddings.jpg",
+    points: ["Wedding Planner", "Wedding Decor", "Reception Decor"],
   },
   {
-    title: "Exhibitions",
-    image: "/images/svc-exhibitions.webp",
-    points: ["Exhibition Design", "Stall Fabrication", "Brand Displays"],
+    title: "Corporate",
+    image: "/images/hd/corporate.jpg",
+    points: ["Corporate Event", "Stage Setup", "Brand Decor"],
   },
   {
-    title: "IKFW",
-    image: "/images/svc-ikfw.webp",
-    points: ["Kids Runway", "Designer Showcase", "Star Showstoppers"],
+    title: "Birthdays",
+    image: "/images/hd/birthday.jpg",
+    points: ["Birthday Decor", "Theme Setups", "Celebration Backdrops"],
   },
   {
-    title: "Women's Funfest",
-    image: "/images/svc-women.webp",
-    points: ["Women-only Escape", "5-Star Stay", "Celebrity Guests"],
+    title: "Haldi Mehendi",
+    image: "/images/hd/haldi.jpg",
+    points: ["Haldi Setup", "Mehendi Seating", "Carnival Haldi"],
   },
   {
-    title: "Digital Marketing",
-    image: "/images/svc-digital.webp",
-    points: ["Performance Marketing", "SEO & Analytics", "Conversion Growth"],
+    title: "Engagement",
+    image: "/images/hd/engagement.jpg",
+    points: ["Engagement Decor", "Anniversary Decor", "Floral Stages"],
   },
 ];
 
@@ -132,102 +140,91 @@ export type CaseStudy = {
 
 export const work: CaseStudy[] = [
   {
-    title: "Doha Insurance Group",
-    kind: "Corporate Event",
-    place: "Mumbai",
-    image: "/images/work-doha.webp",
+    title: "Wedding Decor",
+    kind: "Wedding Planner",
+    place: "Booking open for 26–27",
+    image: "/images/hd/work-wedding.jpg",
     objective:
-      "Create a premium and engaging event experience focused on guest engagement and networking, while successfully launching the brand’s product in India.",
-    work: "Concept & planning, venue setup, stage production, branding, entertainment and complete event execution.",
+      "Plan the wedding as one idea, from the first floral note to the reception stage.",
+    work: "Wedding planning, mandap and aisle decor, stage florals, and the reception setting.",
     success:
-      "Successfully executed the event with a seamless guest experience, strong audience engagement and positive client feedback.",
-    highlight:
-      "A complete event experience combining impactful production, branding, entertainment, networking and the India launch of their product.",
+      "A wedding day that reads as one celebration, with decor carrying the couple from ritual to reception.",
+    highlight: "Wedding planner and wedding decor under the same roof.",
   },
   {
-    title: "WIZ – Multi-City Event",
-    kind: "Corporate Networking Event",
-    place: "Mumbai, Hyderabad & Delhi",
-    image: "/images/work-wiz.webp",
+    title: "Haldi & Mehendi",
+    kind: "Carnival Haldi",
+    place: "Colour, florals, seating",
+    image: "/images/hd/work-haldi.jpg",
     objective:
-      "Strengthen relationships and create meaningful networking opportunities for an international client across its three key Indian locations — Mumbai, Hyderabad and Delhi.",
-    work: "Concept & planning, venue setup, stage production, branding, entertainment and complete event execution.",
+      "Give haldi and mehendi a setting that feels festive without losing the ritual.",
+    work: "Carnival canopies, marigold styling, mehendi seating, and guest corners.",
     success:
-      "Successfully executed the event series across Mumbai, Hyderabad and Delhi with 300+ guests, ensuring a seamless and consistent experience across all locations.",
-    highlight:
-      "A seamless multi-city networking experience delivered across three locations, bringing together 300+ guests with end-to-end event management.",
+      "A daytime celebration guests can sit in, photograph, and stay for.",
+    highlight: "Haldi mehendi decor, including carnival haldi.",
   },
   {
-    title: "BFIL – MICE Event",
-    kind: "Corporate R&R Event",
-    place: "Amritsar",
-    image: "/images/work-bfil.webp",
+    title: "Birthday Decor",
+    kind: "Birthday Decor",
+    place: "Theme setups",
+    image: "/images/hd/work-birthday.jpg",
     objective:
-      "Recognise and reward the top-performing sales team members who achieved their business targets, while creating an engaging platform for networking, celebration and team bonding.",
-    work: "End-to-end planning and execution, including destination and venue suggestions, hotel sourcing, rooming, transportation, guest management, entertainment, the reward ceremony, sightseeing and on-ground coordination.",
+      "Build a birthday around the person, not a stock theme pulled off a shelf.",
+    work: "Backdrop, table styling, balloons or florals, and a photo corner.",
     success:
-      "Successfully delivered a seamless 3-day, 2-night incentive experience, managing the complete guest journey from arrival and check-in to the award celebration and checkout.",
-    highlight:
-      "A complete achievers’ experience combining recognition, rewards, entertainment, networking and destination experiences.",
+      "A room that feels made for that birthday, ready before the first guest walks in.",
+    highlight: "Birthday decor planned as its own event.",
   },
   {
-    title: "WesterCap – MICE",
-    kind: "International MICE & Incentive Event",
-    place: "Thailand",
-    image: "/images/work-wester.webp",
+    title: "Engagement & Reception",
+    kind: "Engagement Decor",
+    place: "Reception & anniversary",
+    image: "/images/hd/work-reception.jpg",
     objective:
-      "Create a premium international incentive experience for 150+ guests, combining business recognition, networking, team engagement and immersive destination experiences in Thailand.",
-    work: "End-to-end planning and execution, including concept, domestic and international airfare, transfers, hotel stay, venue selection, sightseeing, event production, the award function, gifting and on-ground coordination.",
+      "Hold the engagement, reception, or anniversary with a stage and an aisle worth walking.",
+    work: "Floral arches, lit aisles, reception stages, and anniversary tables.",
     success:
-      "Successfully managed a seamless 5-day, 4-night international MICE experience for 150+ guests, coordinating travel, accommodation, events and guest logistics.",
-    highlight:
-      "A fully managed international MICE journey combining travel logistics, premium accommodation, award celebrations and curated sightseeing.",
+      "A night that feels dressed, from the entrance to the last table.",
+    highlight: "Engagement decor, reception decor, and anniversary decor.",
   },
 ];
 
 export const brands = [
-  "nayara.webp",
-  "mi.webp",
-  "lupin.webp",
-  "samsung.webp",
-  "resso.webp",
-  "bisleri.png",
-  "birla.webp",
-  "ivycap.webp",
-  "pg.webp",
-  "indianoil.webp",
-  "sumitomo.webp",
-  "tata.webp",
-  "teradata.webp",
-  "maruti.webp",
-  "sbi.webp",
+  "Wedding Planner",
+  "Corporate Event",
+  "Birthday Decor",
+  "Haldi Mehendi",
+  "Carnival Haldi",
+  "Engagement Decor",
+  "Reception Decor",
+  "Anniversary Decor",
 ];
 
 export const reasons = [
   {
-    title: "Built Around You",
-    body: "We take the time to understand your brand, audience, and objectives before shaping the experience.",
+    title: "Unique Idea",
+    body: "Every booking starts with an idea. The decor, the plan, and the room are built from that, not from a fixed package.",
   },
   {
-    title: "Flexible by Design",
-    body: "No two brands are the same. Our approach adapts to what your event and audience actually need.",
+    title: "Great Vision",
+    body: "Buzz Box holds the picture of the day before the first flower arrives, then builds toward it.",
   },
   {
-    title: "Experiences That Connect",
-    body: "We create experiences designed to engage audiences, build meaningful connections, and strengthen brand loyalty.",
+    title: "Wedding Planner",
+    body: "Weddings are planned as a whole: haldi, mehendi, engagement, the ceremony, and the reception.",
   },
   {
-    title: "Strategy Meets Execution",
-    body: "From the first idea to the final execution, we bring creativity, planning, and production together under one roof.",
+    title: "Corporate Event",
+    body: "Stages, welcomes, and brand decor for evenings that still need to feel hosted.",
   },
   {
-    title: "Proven Through Our Own IPs",
-    body: "Our experience goes beyond client work, with successful properties such as India Kids Fashion Week and Chef’s Connect.",
+    title: "Birthday Decor",
+    body: "Birthday setups with a theme, a backdrop, and a table that belongs to the person being celebrated.",
   },
 ];
 
 export const posts = [
-  "Top 6 Qualities Of Event Management Companies in Delhi & Gurgaon",
-  "5 Outstanding Ways To Make Your Event Attendees Happy & Interested",
-  "5 Essential Creatives To Make Your Exhibition Stand A Star Attraction At A Trade Fair",
+  "Anniversary Decor",
+  "Haldi Mehendi and Carnival Haldi",
+  "Wedding Decor, Engagement Decor and Reception Decor",
 ];

@@ -1,27 +1,27 @@
 import { posts } from "../data";
 
 const socials = [
-  { label: "Facebook", href: "https://www.facebook.com/people/Craftworld-Events-Pvt-Ltd/100057361003447/", mark: "f" },
-  { label: "Linkedin", href: "https://www.linkedin.com/company/craftworld-events-pvt-ltd/", mark: "in" },
-  { label: "Youtube", href: "https://www.youtube.com/@craftworldeventsofficial12/", mark: "▶" },
-  { label: "Instagram", href: "https://www.instagram.com/craftworldevents_official/", mark: "◎" },
+  { label: "Instagram", href: "https://www.instagram.com/events_by_buzzbox/", mark: "◎" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative bg-ink text-mist">
+    <footer id="contact" className="relative overflow-hidden bg-ink text-mist">
       <img
-        src="/images/footer-bg.webp"
+        src="/images/hd/footer.jpg"
         alt=""
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-48 w-full object-cover opacity-20"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-56 w-full object-cover opacity-15"
       />
-      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/90 to-ink" />
+
+      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-20">
         <div>
-          <img src="/images/logo.webp" alt="Craftworld" className="h-10 w-auto" />
-          <p className="mt-5 text-sm leading-relaxed">
-            The leading corporate event management company operating nationally from Mumbai, Delhi, Bangalore, Gurgaon, Pune and other cities in India.
+          <p className="font-serif text-[22px] font-medium tracking-[0.7px] text-gold">BUZZ BOX</p>
+          <p className="mt-1 text-sm font-medium tracking-[0.3px] text-mist">EVENTS &amp; SOLUTIONS</p>
+          <p className="mt-5 text-base leading-[1.7] font-medium text-mist">
+            Unique idea and great vision. Wedding planner, corporate events, and birthday decor. Booking open for 26–27.
           </p>
-          <p className="mt-6 text-sm font-bold tracking-wide text-paper">Our Socials</p>
+          <p className="mt-6 text-base font-bold tracking-[-0.5px] text-paper">Our Socials</p>
           <div className="mt-3 flex gap-3">
             {socials.map((social) => (
               <a
@@ -30,7 +30,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={social.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-paper hover:border-gold hover:text-gold"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-xs text-paper transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:text-gold"
               >
                 {social.mark}
               </a>
@@ -39,58 +39,55 @@ export default function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-bold tracking-wide text-paper">Quick Links</h2>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><a className="hover:text-gold" href="#about">About Us</a></li>
-            <li><a className="hover:text-gold" href="#services">Services</a></li>
-            <li><a className="hover:text-gold" href="#services">CWE Originals</a></li>
-            <li><a className="hover:text-gold" href="#work">Portfolio</a></li>
-            <li><a className="hover:text-gold" href="#contact">Contact</a></li>
+          <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Quick Links</h2>
+          <ul className="mt-4 space-y-2.5 text-base font-medium text-mist">
+            <li><a className="transition hover:text-gold" href="#about">About Us</a></li>
+            <li><a className="transition hover:text-gold" href="#services">Services</a></li>
+            <li><a className="transition hover:text-gold" href="#services">Decor</a></li>
+            <li><a className="transition hover:text-gold" href="#work">Portfolio</a></li>
+            <li><a className="transition hover:text-gold" href="#contact">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-sm font-bold tracking-wide text-paper">Contact Information</h2>
-          <ul className="mt-4 space-y-3 text-sm leading-relaxed">
+          <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Contact Information</h2>
+          <ul className="mt-4 space-y-3 text-base leading-[1.7] font-medium text-mist">
+            <li>Booking open for 26–27</li>
+            <li>
+              <a href="tel:+918789081553" className="transition hover:text-gold">
+                Call us now: 8789081553
+              </a>
+            </li>
             <li>
               <a
-                href="https://maps.google.com/?q=VIP+Plaza+Veera+Desai+Andheri+West+Mumbai"
+                href="https://www.instagram.com/events_by_buzzbox/"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-gold"
+                className="transition hover:text-gold"
               >
-                Office No. 001, Ground floor, Bldg. B/7, VIP Plaza, New Link Rd, behind Crystal Plaza, Veera Desai Industrial Estate, Andheri West, Mumbai, Maharashtra - 400053.
-              </a>
-            </li>
-            <li>
-              <a href="mailto:info@craftworldevents.com" className="hover:text-gold">
-                Email: info@craftworldevents.com
-              </a>
-            </li>
-            <li>
-              <a href="tel:+919820344426" className="hover:text-gold">
-                Call us now: +91 98203 44426
+                Instagram: @events_by_buzzbox
               </a>
             </li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-sm font-bold tracking-wide text-paper">Locations</h2>
-          <img
-            src="/images/map.webp"
-            alt="Map of India showing Mumbai, Delhi, Pune, Chennai, Gurgaon and Bangalore"
-            className="mt-4 w-44"
-          />
+          <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Decor</h2>
+          <ul className="mt-4 space-y-2.5 text-base font-medium text-mist">
+            <li>Anniversary Decor</li>
+            <li>Haldi Mehendi</li>
+            <li>Engagement Decor</li>
+            <li>Reception Decor</li>
+          </ul>
         </div>
       </div>
 
-      <div id="blog" className="relative mx-auto max-w-[1240px] px-5 pb-10 lg:px-8">
-        <h2 className="text-sm font-bold tracking-wide text-paper">Recent Blog Posts</h2>
-        <ul className="mt-4 space-y-2 text-sm">
+      <div id="blog" className="relative mx-auto max-w-[1240px] px-5 pb-12 lg:px-8">
+        <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Highlights</h2>
+        <ul className="mt-4 space-y-2 text-base font-medium text-mist">
           {posts.map((post) => (
             <li key={post}>
-              <a href="#blog" className="hover:text-gold">
+              <a href="#blog" className="transition hover:text-gold">
                 {post}
               </a>
             </li>
@@ -98,17 +95,24 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="relative bg-panel">
+      <div className="relative border-t border-white/5 bg-panel/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-2 px-5 py-4 text-xs text-mist md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>© 2026 Craftworld Events Management Company | All Rights Reserved.</p>
+          <p>© 2026 Buzz Box Events &amp; Solutions | All Rights Reserved.</p>
           <p>
-            <a href="#contact" className="hover:text-gold">Event Company Mumbai</a>
+            <a href="#services" className="transition hover:text-gold">Wedding Planner</a>
             {" | "}
-            <a href="#contact" className="hover:text-gold">Event Company Delhi</a>
+            <a href="#services" className="transition hover:text-gold">Corporate Event</a>
             {" | "}
-            <a href="#contact" className="hover:text-gold">Event Company Pune</a>
+            <a href="#services" className="transition hover:text-gold">Birthday Decor</a>
             {" | "}
-            <a href="#contact" className="hover:text-gold">Privacy Policy</a>
+            <a
+              href="https://www.instagram.com/events_by_buzzbox/"
+              className="transition hover:text-gold"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
           </p>
         </div>
       </div>

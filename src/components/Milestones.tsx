@@ -1,71 +1,58 @@
-import { useEffect, useRef, useState } from "react";
 import { stats } from "../data";
+import { useReveal } from "../hooks/useReveal";
 
-function useCount(target: number, active: boolean) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!active) return;
-    const start = performance.now();
-    const duration = 1400;
-    let frame = 0;
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.round(target * eased));
-      if (progress < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [active, target]);
-
-  return value;
-}
-
-function Stat({ value, label, active }: { value: number; label: string; active: boolean }) {
-  const current = useCount(value, active);
-  return (
-    <article className="text-center">
-      <p className="font-serif text-5xl font-medium text-paper/90 md:text-6xl">
-        {current}
-        <span className="text-gold">+</span>
-      </p>
-      <p className="mt-3 text-[13px] tracking-wide text-mist">{label}</p>
-    </article>
-  );
-}
+const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3", "reveal-delay-4"];
 
 export default function Milestones() {
-  const ref = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setActive(true);
-      },
-      { threshold: 0.35 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, visible } = useReveal<HTMLElement>();
 
   return (
-    <section id="milestones" ref={ref} className="bg-ink px-5 py-24 lg:px-8">
-      <div className="mx-auto max-w-[1100px]">
-        <h2 className="text-center font-serif text-4xl font-medium md:text-5xl">Our Milestones</h2>
-        <div className="mt-16 grid grid-cols-2 gap-y-12 md:grid-cols-4">
-          {stats.map((stat) => (
-            <Stat key={stat.label} {...stat} active={active} />
+    <section id="milestones" ref={ref} className="relative overflow-hidden px-5 py-24 lg:px-8 lg:py-28">
+      <img
+        src="/images/hd/milestones.jpg"
+        alt=""
+        className={`absolute inset-0 h-full w-full object-cover object-center transition duration-[1800ms] ${
+          visible ? "scale-100 opacity-100" : "scale-110 opacity-70"
+        }`}
+      />
+      <div className="absolute inset-0 bg-[#090b0d]/74" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink/50" />
+
+      <div className="relative mx-auto max-w-[1100px]">
+        <div className={`flex flex-col items-center ${visible ? "reveal is-visible" : "reveal"}`}>
+          <div className="section-line mb-5" />
+          <h2 className="text-center font-serif text-[32px] font-medium tracking-[0.7px] text-paper capitalize md:text-[40px]">
+            Our Celebrations
+          </h2>
+        </div>
+
+        <div className="mt-16 grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-12">
+          {stats.map((stat, index) => (
+            <article
+              key={stat.label}
+              className={`${visible ? "reveal is-visible" : "reveal"} ${delays[index] ?? ""} text-center ${
+                index > 0 ? "md:border-l md:border-gold/40" : ""
+              }`}
+            >
+              <div className="mx-auto max-w-[200px] rounded-2xl px-3 py-4 transition duration-500 hover:-translate-y-1 hover:bg-white/5">
+                <p className="font-display text-[40px] font-normal tracking-[0.3px] text-paper sm:text-[52px]">
+                  {stat.value}
+                </p>
+                <p className="mt-3 text-sm font-medium tracking-wide text-mist sm:text-base">{stat.label}</p>
+              </div>
+            </article>
           ))}
         </div>
-        <p className="mt-14 text-center text-sm tracking-wide text-mist">
-          <span className="mr-2 text-gold" aria-hidden="true">
-            ★★★★☆
-          </span>
-          Rated 4.2/5 stars on Google!
+
+        <p
+          className={`mt-14 text-center text-sm tracking-wide text-mist ${
+            visible ? "reveal is-visible reveal-delay-5" : "reveal"
+          }`}
+        >
+          Booking open for 26–27 ·{" "}
+          <a className="text-gold transition hover:underline" href="tel:+918789081553">
+            8789081553
+          </a>
         </p>
       </div>
     </section>
