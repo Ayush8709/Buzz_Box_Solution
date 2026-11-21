@@ -1,12 +1,26 @@
+import { useRef } from "react";
 import { posts } from "../data";
+import { useGsapContext } from "../hooks/useGsapContext";
+import { reveal } from "../lib/animate";
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/events_by_buzzbox/", mark: "◎" },
 ];
 
 export default function Footer() {
+  const root = useRef<HTMLElement>(null);
+
+  useGsapContext(root, (gsap) => {
+    reveal(gsap, ".ft-col", {
+      y: 24,
+      duration: 0.7,
+      stagger: 0.08,
+      scrollTrigger: { trigger: root.current, start: "top 88%" },
+    });
+  }, []);
+
   return (
-    <footer id="contact" className="relative overflow-hidden bg-ink text-mist">
+    <footer id="contact" ref={root} className="relative overflow-hidden bg-ink text-mist">
       <img
         src="/images/hd/footer.jpg"
         alt=""
@@ -14,11 +28,11 @@ export default function Footer() {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/90 to-ink" />
 
-      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-20">
-        <div>
+      <div className="relative mx-auto grid max-w-[1240px] gap-12 px-5 py-20 md:grid-cols-2 lg:grid-cols-4 lg:px-8 lg:py-24">
+        <div className="ft-col">
           <p className="font-serif text-[22px] font-medium tracking-[0.7px] text-gold">BUZZ BOX</p>
           <p className="mt-1 text-sm font-medium tracking-[0.3px] text-mist">EVENTS &amp; SOLUTIONS</p>
-          <p className="mt-5 text-base leading-[1.7] font-medium text-mist">
+          <p className="mt-5 text-base leading-[1.75] font-medium text-mist">
             Unique idea and great vision. Wedding planner, corporate events, and birthday decor. Booking open for 26–27.
           </p>
           <p className="mt-6 text-base font-bold tracking-[-0.5px] text-paper">Our Socials</p>
@@ -38,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="ft-col">
           <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Quick Links</h2>
           <ul className="mt-4 space-y-2.5 text-base font-medium text-mist">
             <li><a className="transition hover:text-gold" href="#about">About Us</a></li>
@@ -49,9 +63,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="ft-col">
           <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Contact Information</h2>
-          <ul className="mt-4 space-y-3 text-base leading-[1.7] font-medium text-mist">
+          <ul className="mt-4 space-y-3 text-base leading-[1.75] font-medium text-mist">
             <li>Booking open for 26–27</li>
             <li>
               <a href="tel:+918789081553" className="transition hover:text-gold">
@@ -71,7 +85,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="ft-col">
           <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Decor</h2>
           <ul className="mt-4 space-y-2.5 text-base font-medium text-mist">
             <li>Anniversary Decor</li>
@@ -82,7 +96,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div id="blog" className="relative mx-auto max-w-[1240px] px-5 pb-12 lg:px-8">
+      <div id="blog" className="ft-col relative mx-auto max-w-[1240px] px-5 pb-12 lg:px-8">
         <h2 className="text-base font-bold tracking-[-0.5px] text-paper">Highlights</h2>
         <ul className="mt-4 space-y-2 text-base font-medium text-mist">
           {posts.map((post) => (

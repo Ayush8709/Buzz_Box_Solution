@@ -1,55 +1,59 @@
+import { useRef } from "react";
 import { services } from "../data";
-import { useReveal } from "../hooks/useReveal";
-
-const delays = [
-  "reveal-delay-1",
-  "reveal-delay-2",
-  "reveal-delay-3",
-  "reveal-delay-4",
-  "reveal-delay-5",
-];
+import { useGsapContext } from "../hooks/useGsapContext";
+import { reveal } from "../lib/animate";
 
 export default function Services() {
-  const { ref, visible } = useReveal<HTMLElement>();
+  const root = useRef<HTMLElement>(null);
+
+  useGsapContext(root, (gsap) => {
+    reveal(gsap, ".svc-head > *", {
+      y: 28,
+      duration: 0.7,
+      stagger: 0.08,
+      scrollTrigger: { trigger: root.current, start: "top 78%" },
+    });
+    reveal(gsap, ".svc-card", {
+      y: 48,
+      duration: 0.85,
+      stagger: 0.08,
+      scrollTrigger: { trigger: ".svc-grid", start: "top 80%" },
+    });
+  }, []);
 
   return (
-    <section id="services" ref={ref} className="bg-ink px-5 py-20 lg:px-8 lg:py-28">
-      <div className="mx-auto max-w-[1240px]">
-        <div className={visible ? "reveal is-visible" : "reveal"}>
+    <section id="services" ref={root} className="relative bg-ink px-5 py-24 lg:px-8 lg:py-32">
+      <div className="ambient right-0 top-20 h-64 w-64 bg-gold/8" />
+      <div className="relative mx-auto max-w-[1240px]">
+        <div className="svc-head">
           <div className="section-line mb-5" />
-          <h2 className="font-serif text-[40px] font-medium tracking-[0.7px] text-paper md:text-[46px]">
+          <h2 className="font-serif text-[40px] font-medium tracking-[0.7px] text-paper md:text-[48px]">
             What We Do
           </h2>
-          <p className="mt-3 max-w-xl text-base text-mist">
+          <p className="mt-3 max-w-xl text-base text-mist md:text-[17px]">
             Decor and planning for weddings, corporate evenings, birthdays, and celebrations in between.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-6">
+        <div className="svc-grid mt-14 grid gap-4 md:grid-cols-6 md:gap-5">
           {services.map((service, index) => (
             <a
               key={service.title}
               href="#contact"
-              className={`media-card group relative min-h-[340px] overflow-hidden rounded-2xl md:min-h-[430px] ${
+              className={`svc-card media-card group relative min-h-[360px] overflow-hidden rounded-[22px] md:min-h-[450px] ${
                 index < 3 ? "md:col-span-2" : "md:col-span-3"
-              } ${visible ? "reveal is-visible" : "reveal"} ${delays[index] ?? ""}`}
+              }`}
             >
-              <img
-                src={service.image}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="relative z-[2] flex h-full flex-col justify-end p-6 md:p-7">
-                <p className="mb-2 text-xs tracking-[0.22em] text-gold uppercase translate-y-2 opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  Book now
-                </p>
-                <h3 className="text-[22px] font-medium tracking-[-0.4px] text-paper uppercase transition duration-500 group-hover:translate-x-1">
+              <img src={service.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="relative z-[2] flex h-full flex-col justify-end p-6 md:p-8">
+                <p className="mb-2 text-xs tracking-[0.22em] text-gold uppercase">Book now</p>
+                <h3 className="text-[22px] font-medium tracking-[-0.4px] text-paper uppercase md:text-[24px]">
                   {service.title}
                 </h3>
-                <ul className="mt-3 space-y-1.5 text-sm font-medium tracking-[0.2px] text-paper">
+                <ul className="mt-3 space-y-1.5 text-sm font-medium tracking-[0.2px] text-paper/95">
                   {service.points.map((point) => (
                     <li key={point} className="flex items-center gap-2">
-                      <span className="h-px w-0 bg-gold transition-all duration-500 group-hover:w-3" />
+                      <span className="h-px w-3 bg-gold" />
                       {point}
                     </li>
                   ))}

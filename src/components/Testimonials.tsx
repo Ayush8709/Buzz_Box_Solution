@@ -1,35 +1,62 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { reviews } from "../data";
-import { useReveal } from "../hooks/useReveal";
+import { useGsapContext } from "../hooks/useGsapContext";
+import { getGsap } from "../lib/gsap";
+import { reveal } from "../lib/animate";
 
 export default function Testimonials() {
+  const root = useRef<HTMLElement>(null);
+  const quoteRef = useRef<HTMLQuoteElement>(null);
   const [index, setIndex] = useState(0);
-  const [animKey, setAnimKey] = useState(0);
   const review = reviews[index];
-  const { ref, visible } = useReveal<HTMLElement>();
+
+  useGsapContext(root, (gsap) => {
+    reveal(gsap, ".ts-left > *", {
+      x: -28,
+      y: 0,
+      duration: 0.75,
+      stagger: 0.1,
+      scrollTrigger: { trigger: root.current, start: "top 75%" },
+    });
+    reveal(gsap, ".ts-card", {
+      x: 32,
+      y: 0,
+      duration: 0.8,
+      scrollTrigger: { trigger: root.current, start: "top 75%" },
+    });
+  }, []);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setIndex((value) => (value + 1) % reviews.length);
-      setAnimKey((value) => value + 1);
     }, 7000);
     return () => window.clearInterval(timer);
   }, []);
 
-  const go = (next: number) => {
-    setIndex(next);
-    setAnimKey((value) => value + 1);
-  };
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const { gsap } = getGsap();
+    if (!quoteRef.current) return;
+    gsap.fromTo(
+      quoteRef.current,
+      { y: 12 },
+      { y: 0, duration: 0.45, ease: "power3.out", clearProps: "transform" },
+    );
+  }, [index]);
 
   return (
-    <section id="testimonials" ref={ref} className="relative overflow-hidden bg-[#0c0e11] px-5 py-20 lg:px-8 lg:py-28">
-      <div className="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
+    <section
+      id="testimonials"
+      ref={root}
+      className="noise relative overflow-hidden bg-[#0c0e11] px-5 py-24 lg:px-8 lg:py-32"
+    >
+      <div className="ambient -left-24 top-16 h-72 w-72 bg-gold/12" />
+      <div className="ambient -right-20 bottom-0 h-80 w-80 bg-gold/8" />
 
-      <div className="relative mx-auto grid max-w-[1100px] items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className={visible ? "reveal is-visible" : "reveal"}>
+      <div className="relative mx-auto grid max-w-[1100px] items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div className="ts-left">
           <div className="section-line mb-5" />
-          <h2 className="font-serif text-[40px] leading-[1.15] font-medium tracking-[0.7px] text-paper md:text-[46px]">
+          <h2 className="font-serif text-[40px] leading-[1.12] font-medium tracking-[0.7px] text-paper md:text-[48px]">
             Unique Idea
             <br /> And Great Vision
           </h2>
@@ -38,14 +65,11 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className={`glass rounded-3xl p-7 md:p-9 ${visible ? "reveal is-visible reveal-delay-2" : "reveal"}`}>
-          <blockquote
-            key={animKey}
-            className="word-in text-[17px] leading-[1.75] font-medium text-paper md:text-[18px]"
-          >
+        <div className="ts-card glass rounded-[28px] p-7 shadow-[0_30px_80px_rgba(0,0,0,0.35)] md:p-10">
+          <blockquote ref={quoteRef} className="text-[17px] leading-[1.8] font-medium text-paper md:text-[19px]">
             “{review.quote}”
           </blockquote>
-          <div key={`meta-${animKey}`} className="word-in mt-8">
+          <div className="mt-8">
             <p className="text-base font-medium text-paper">{review.name}</p>
             <p className="mt-1 text-sm font-medium text-mist">{review.role}</p>
           </div>
@@ -57,9 +81,9 @@ export default function Testimonials() {
                   key={i}
                   type="button"
                   aria-label={`Show review ${i + 1}`}
-                  onClick={() => go(i)}
-                  className={`h-1.5 rounded-full transition-all duration-400 ${
-                    i === index ? "w-7 bg-gold" : "w-2.5 bg-white/25 hover:bg-white/45"
+                  onClick={() => setIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    i === index ? "w-8 bg-gold" : "w-2.5 bg-white/25 hover:bg-white/45"
                   }`}
                 />
               ))}
@@ -67,7 +91,7 @@ export default function Testimonials() {
             <button
               type="button"
               className="text-sm tracking-[0.2em] text-mist transition hover:text-gold"
-              onClick={() => go((index + 1) % reviews.length)}
+              onClick={() => setIndex((value) => (value + 1) % reviews.length)}
               aria-label="Next testimonial"
             >
               {index + 1} / {reviews.length}

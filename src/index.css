@@ -29,6 +29,10 @@ body {
   color: #090b0d;
 }
 
+img {
+  max-width: 100%;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -39,7 +43,7 @@ body {
 }
 
 .marquee-track {
-  animation: marquee 32s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
 .marquee-track:hover {
@@ -51,12 +55,12 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(1.1);
+    transform: scale(1.12);
   }
 }
 
 .kenburns {
-  animation: ken 16s ease-in-out infinite alternate;
+  animation: ken 18s ease-in-out infinite alternate;
 }
 
 @keyframes float-y {
@@ -65,25 +69,25 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
 }
 
 .float-y {
-  animation: float-y 2.4s ease-in-out infinite;
+  animation: float-y 2.6s ease-in-out infinite;
 }
 
 @keyframes pulse-ring {
   0% {
     transform: scale(1);
-    opacity: 0.55;
+    opacity: 0.5;
   }
   70% {
-    transform: scale(1.55);
+    transform: scale(1.6);
     opacity: 0;
   }
   100% {
-    transform: scale(1.55);
+    transform: scale(1.6);
     opacity: 0;
   }
 }
@@ -104,90 +108,12 @@ body {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-gold) 0%, transparent);
   }
   50% {
-    box-shadow: 0 0 28px 2px color-mix(in srgb, var(--color-gold) 35%, transparent);
+    box-shadow: 0 0 32px 4px color-mix(in srgb, var(--color-gold) 32%, transparent);
   }
 }
 
 .btn-glow:hover {
-  animation: soft-glow 1.6s ease-in-out infinite;
-}
-
-@keyframes word-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.word-in {
-  animation: word-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(36px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96) translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 {
-  transition-delay: 0.08s;
-}
-.reveal-delay-2 {
-  transition-delay: 0.16s;
-}
-.reveal-delay-3 {
-  transition-delay: 0.24s;
-}
-.reveal-delay-4 {
-  transition-delay: 0.32s;
-}
-.reveal-delay-5 {
-  transition-delay: 0.4s;
+  animation: soft-glow 1.8s ease-in-out infinite;
 }
 
 .nav-link {
@@ -201,10 +127,10 @@ body {
   right: 12px;
   bottom: 6px;
   height: 1px;
-  background: var(--color-gold);
+  background: linear-gradient(90deg, var(--color-gold), transparent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-link:hover::after,
@@ -222,11 +148,11 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    transparent 35%,
-    color-mix(in srgb, #000 72%, transparent) 100%
+    transparent 28%,
+    color-mix(in srgb, #000 78%, transparent) 100%
   );
-  opacity: 0.9;
-  transition: opacity 0.45s ease;
+  opacity: 0.92;
+  transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 1;
 }
@@ -237,72 +163,67 @@ body {
 
 .media-card img {
   transition:
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s ease;
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s ease;
+  will-change: transform;
 }
 
 .media-card:hover img {
-  transform: scale(1.08);
-  filter: brightness(1.08) saturate(1.05);
+  transform: scale(1.1);
+  filter: brightness(1.1) saturate(1.08);
 }
 
 .glass {
-  background: color-mix(in srgb, #111519 72%, transparent);
-  backdrop-filter: blur(16px);
-  border: 1px solid color-mix(in srgb, #fff 8%, transparent);
+  background: color-mix(in srgb, #111519 68%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  border: 1px solid color-mix(in srgb, #fff 10%, transparent);
 }
 
 .section-line {
-  width: 48px;
+  width: 56px;
   height: 2px;
   background: linear-gradient(90deg, var(--color-gold), transparent);
+  transform-origin: left center;
 }
 
 .marquee-fade {
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.modal-backdrop {
-  animation: fade-in 0.25s ease both;
+.ambient {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.modal-panel {
-  animation: scale-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 1;
 }
 
-.hero-enter {
-  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 
-.hero-enter-delay-1 {
-  animation-delay: 0.12s;
-}
-.hero-enter-delay-2 {
-  animation-delay: 0.28s;
-}
-.hero-enter-delay-3 {
-  animation-delay: 0.44s;
-}
-.hero-enter-delay-4 {
-  animation-delay: 0.6s;
+.word-mask > span {
+  display: inline-block;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .kenburns,
   .float-y,
-  .word-in,
-  .hero-enter,
-  .modal-backdrop,
-  .modal-panel,
   .btn-glow:hover,
   .pulse-ring::before {
     animation: none !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }
