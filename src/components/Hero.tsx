@@ -49,7 +49,7 @@ export default function Hero() {
     <section
       id="top"
       ref={root}
-      className="relative flex h-auto min-h-[520px] flex-col overflow-hidden bg-ink md:h-svh md:min-h-svh md:max-h-svh"
+      className="relative flex h-svh min-h-svh max-h-svh flex-col overflow-hidden bg-ink md:h-svh md:min-h-svh md:max-h-svh"
     >
       <div className="absolute inset-0">
         {heroSlides.map((src, slide) => (

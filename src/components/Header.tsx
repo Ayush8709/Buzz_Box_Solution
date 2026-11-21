@@ -75,7 +75,7 @@ export default function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="relative z-[210] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
+      <div className="relative z-[220] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
         <a
           href="#top"
           className="header-brand group min-w-0 shrink leading-none"
@@ -92,7 +92,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="relative z-[220] flex h-11 w-11 shrink-0 touch-manipulation flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="relative z-[230] flex h-11 w-11 shrink-0 touch-manipulation flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -119,46 +119,97 @@ export default function Header() {
           />
         </button>
 
+        {/* Desktop nav */}
         <nav
-          id="mobile-nav"
           aria-label="Menu"
-          className={`${
-            open ? "flex" : "hidden"
-          } absolute inset-x-0 top-full z-[215] max-h-[calc(100svh-56px)] flex-col gap-0.5 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:max-h-[calc(100svh-62px)] sm:px-5 sm:py-5 lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
+          className="hidden lg:flex lg:flex-row lg:items-center lg:gap-1"
         >
+          {nav.map((item) => (
+            <div key={item.label} className="header-nav-item group relative">
+              {item.items ? (
+                <>
+                  <a
+                    href={item.href}
+                    className="nav-link flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-paper transition hover:text-gold"
+                  >
+                    {item.label}
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      aria-hidden="true"
+                      className="ml-1 opacity-70 transition duration-300 group-hover:translate-y-0.5"
+                    >
+                      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.2" />
+                    </svg>
+                  </a>
+                  <div className="invisible absolute top-full left-0 z-20 flex min-w-52 translate-y-2 flex-col rounded-2xl border border-white/8 bg-panel/95 py-2 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    {item.items.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        className="px-4 py-2.5 text-[13px] text-mist transition hover:bg-white/5 hover:pl-5 hover:text-gold"
+                        {...(child.href.startsWith("http")
+                          ? { target: "_blank", rel: "noreferrer" }
+                          : {})}
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  className="nav-link flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-paper transition hover:text-gold"
+                >
+                  {item.label}
+                </a>
+              )}
+            </div>
+          ))}
+          <a
+            href="#contact"
+            className="header-nav-item btn-glow ml-4 inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-[15px] font-bold tracking-[-0.3px] text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0d0ae]"
+          >
+            Book Now
+          </a>
+        </nav>
+      </div>
+
+      {/* Mobile full-screen menu */}
+      <nav
+        id="mobile-nav"
+        aria-label="Mobile menu"
+        className={`fixed inset-0 z-[210] flex h-svh w-full flex-col bg-ink px-5 pt-[72px] pb-8 transition duration-300 lg:hidden ${
+          open ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="flex flex-1 flex-col gap-1 overflow-y-auto overscroll-contain">
           {nav.map((item) => {
             const isOpen = expanded === item.label;
             return (
-              <div key={item.label} className="header-nav-item group relative">
+              <div key={item.label} className="border-b border-white/8">
                 {item.items ? (
                   <>
-                    <div className="flex items-center lg:block">
+                    <div className="flex items-center">
                       <a
                         href={item.href}
-                        className="nav-link flex flex-1 items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper transition hover:text-gold lg:py-2"
+                        className="flex flex-1 items-center px-1 py-4 text-[20px] font-medium text-paper transition hover:text-gold"
                         onClick={closeMenu}
                       >
                         {item.label}
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          aria-hidden="true"
-                          className="ml-1 hidden opacity-70 transition duration-300 group-hover:translate-y-0.5 lg:inline"
-                        >
-                          <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.2" />
-                        </svg>
                       </a>
                       <button
                         type="button"
-                        className="flex h-10 w-10 items-center justify-center text-mist lg:hidden"
+                        className="flex h-12 w-12 items-center justify-center text-mist"
                         aria-label={`${isOpen ? "Collapse" : "Expand"} ${item.label}`}
                         aria-expanded={isOpen}
                         onClick={() => setExpanded(isOpen ? null : item.label)}
                       >
                         <svg
-                          width="10"
-                          height="6"
+                          width="12"
+                          height="8"
                           viewBox="0 0 10 6"
                           aria-hidden="true"
                           className={`transition duration-300 ${isOpen ? "rotate-180" : ""}`}
@@ -167,16 +218,12 @@ export default function Header() {
                         </svg>
                       </button>
                     </div>
-                    <div
-                      className={`${
-                        isOpen ? "flex" : "hidden"
-                      } flex-col overflow-hidden rounded-2xl border border-white/8 bg-panel py-1.5 lg:invisible lg:absolute lg:top-full lg:left-0 lg:z-20 lg:flex lg:min-w-52 lg:translate-y-2 lg:bg-panel/95 lg:py-2 lg:opacity-0 lg:shadow-2xl lg:backdrop-blur-xl lg:transition-all lg:duration-300 lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100`}
-                    >
+                    <div className={`${isOpen ? "flex" : "hidden"} flex-col gap-1 pb-4 pl-3`}>
                       {item.items.map((child) => (
                         <a
                           key={child.label}
                           href={child.href}
-                          className="px-4 py-2.5 text-[13px] text-mist transition hover:bg-white/5 hover:pl-5 hover:text-gold"
+                          className="px-2 py-2.5 text-[15px] text-mist transition hover:text-gold"
                           onClick={closeMenu}
                           {...(child.href.startsWith("http")
                             ? { target: "_blank", rel: "noreferrer" }
@@ -190,7 +237,7 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="nav-link flex items-center gap-1 px-3 py-2.5 text-[15px] font-medium text-paper transition hover:text-gold lg:py-2"
+                    className="flex items-center px-1 py-4 text-[20px] font-medium text-paper transition hover:text-gold"
                     onClick={closeMenu}
                   >
                     {item.label}
@@ -199,24 +246,16 @@ export default function Header() {
               </div>
             );
           })}
-          <a
-            href="#contact"
-            className="header-nav-item btn-glow mt-3 inline-flex items-center justify-center rounded-full bg-gold px-5 py-2.5 text-[15px] font-bold tracking-[-0.3px] text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0d0ae] lg:mt-0 lg:ml-4"
-            onClick={closeMenu}
-          >
-            Book Now
-          </a>
-        </nav>
-      </div>
+        </div>
 
-      {open ? (
-        <button
-          type="button"
-          aria-label="Close menu overlay"
-          className="fixed inset-0 z-[205] bg-black/50 lg:hidden"
+        <a
+          href="#contact"
+          className="btn-glow mt-4 inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3.5 text-[16px] font-bold tracking-[-0.3px] text-ink transition duration-300 hover:bg-[#f0d0ae]"
           onClick={closeMenu}
-        />
-      ) : null}
+        >
+          Book Now
+        </a>
+      </nav>
     </header>
   );
 }
