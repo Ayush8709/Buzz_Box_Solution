@@ -80,7 +80,7 @@ export default function Hero() {
       <div className="ambient -left-16 top-24 h-72 w-72 bg-gold/20" />
       <div className="ambient ambient-delay right-[-4rem] bottom-24 h-80 w-80 bg-gold/14" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-start px-4 pt-[110px] pb-24 sm:px-5 sm:pt-[130px] sm:pb-28 lg:px-8 lg:pt-[150px] lg:pb-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1240px] flex-1 flex-col justify-start px-4 pt-10 pb-24 sm:px-5 sm:pt-14 sm:pb-28 lg:px-8 lg:pt-20 lg:pb-32">
         <h1 className="sr-only">Buzz Box Events and Solutions</h1>
         <div className="hero-line section-line mb-4 sm:mb-5" />
         <p className="hero-title font-serif text-[30px] leading-[1.08] font-extrabold tracking-[0.2px] text-paper capitalize sm:text-[56px] lg:text-[68px]">

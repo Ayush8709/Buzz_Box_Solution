@@ -290,7 +290,6 @@ img {
 }
 
 main,
-header,
 footer {
   position: relative;
   z-index: 1;

@@ -4,16 +4,8 @@ import { useGsapContext } from "../hooks/useGsapContext";
 
 export default function Header() {
   const root = useRef<HTMLElement>(null);
-  const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -22,8 +14,13 @@ export default function Header() {
       return;
     }
     document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -47,45 +44,63 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setOpen(false);
+  const toggleMenu = () => setOpen((value) => !value);
 
   return (
     <header
       ref={root}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        open
-          ? "border-b border-white/5 bg-ink"
-          : solid
-            ? "border-b border-white/5 bg-ink/70 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
-            : "bg-gradient-to-b from-black/25 via-black/10 to-transparent"
-      }`}
+      className="sticky top-0 z-[100] border-b border-white/10 bg-ink/95 shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
     >
-      <div className="mx-auto flex h-[70px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[78px] sm:gap-6 sm:px-5 lg:px-8">
-        <a href="#top" className="header-brand group min-w-0 shrink leading-none" aria-label="Buzz Box home" onClick={closeMenu}>
-          <span className="text-glow block font-serif text-[20px] tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[22px] sm:tracking-[0.16em]">
+      <div className="relative z-[110] mx-auto flex h-[56px] max-w-[1240px] items-center justify-between gap-4 px-4 sm:h-[62px] sm:gap-6 sm:px-5 lg:px-8">
+        <a
+          href="#top"
+          className="header-brand group min-w-0 shrink leading-none"
+          aria-label="Buzz Box home"
+          onClick={closeMenu}
+        >
+          <span className="text-glow block font-serif text-[18px] tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[20px] sm:tracking-[0.16em]">
             BUZZ BOX
           </span>
-          <span className="mt-1 block truncate text-[10px] font-medium tracking-[0.22em] text-mist sm:text-[11px] sm:tracking-[0.28em]">
+          <span className="mt-0.5 block truncate text-[9px] font-medium tracking-[0.2em] text-mist sm:text-[10px] sm:tracking-[0.24em]">
             EVENTS &amp; SOLUTIONS
           </span>
         </a>
 
         <button
           type="button"
-          className="relative z-10 flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="relative z-[120] flex h-11 w-11 shrink-0 touch-manipulation flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
+          aria-controls="mobile-nav"
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleMenu();
+          }}
         >
-          <span className={`block h-px w-6 bg-paper transition duration-300 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
-          <span className={`block h-px w-6 bg-paper transition duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-px w-6 bg-paper transition duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          <span
+            className={`block h-0.5 w-5 rounded-full bg-paper transition duration-300 ${
+              open ? "translate-y-[8px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 rounded-full bg-paper transition duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 rounded-full bg-paper transition duration-300 ${
+              open ? "-translate-y-[8px] -rotate-45" : ""
+            }`}
+          />
         </button>
 
         <nav
+          id="mobile-nav"
           aria-label="Menu"
           className={`${
             open ? "flex" : "hidden"
-          } absolute inset-x-0 top-[70px] max-h-[calc(100svh-70px)] flex-col gap-0.5 overflow-y-auto overscroll-contain border-b border-white/5 bg-ink px-4 py-4 sm:top-[78px] sm:max-h-[calc(100svh-78px)] sm:px-5 sm:py-5 lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0`}
+          } absolute inset-x-0 top-full z-[115] max-h-[calc(100svh-56px)] flex-col gap-0.5 overflow-y-auto overscroll-contain border-b border-white/10 bg-ink px-4 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.45)] sm:max-h-[calc(100svh-62px)] sm:px-5 sm:py-5 lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
         >
           {nav.map((item) => {
             const isOpen = expanded === item.label;
@@ -131,7 +146,7 @@ export default function Header() {
                     <div
                       className={`${
                         isOpen ? "flex" : "hidden"
-                      } flex-col overflow-hidden rounded-2xl border border-white/8 bg-panel/80 py-1.5 lg:invisible lg:absolute lg:top-full lg:left-0 lg:z-20 lg:flex lg:min-w-52 lg:translate-y-2 lg:border lg:bg-panel/95 lg:py-2 lg:opacity-0 lg:shadow-2xl lg:backdrop-blur-xl lg:transition-all lg:duration-300 lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100`}
+                      } flex-col overflow-hidden rounded-2xl border border-white/8 bg-panel py-1.5 lg:invisible lg:absolute lg:top-full lg:left-0 lg:z-20 lg:flex lg:min-w-52 lg:translate-y-2 lg:bg-panel/95 lg:py-2 lg:opacity-0 lg:shadow-2xl lg:backdrop-blur-xl lg:transition-all lg:duration-300 lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100`}
                     >
                       {item.items.map((child) => (
                         <a
@@ -169,6 +184,15 @@ export default function Header() {
           </a>
         </nav>
       </div>
+
+      {open ? (
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          className="fixed inset-0 z-[105] bg-black/50 lg:hidden"
+          onClick={closeMenu}
+        />
+      ) : null}
     </header>
   );
 }
