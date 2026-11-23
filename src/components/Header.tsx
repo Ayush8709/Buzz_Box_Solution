@@ -82,10 +82,10 @@ export default function Header() {
           aria-label="Buzz Box home"
           onClick={closeMenu}
         >
-          <span className="text-glow block font-serif text-[18px] tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[20px] sm:tracking-[0.16em]">
+          <span className="text-glow block font-serif text-[28px] font-extrabold tracking-[0.14em] text-gold transition duration-300 group-hover:tracking-[0.2em] sm:text-[30px] sm:tracking-[0.16em]">
             BUZZ BOX
           </span>
-          <span className="mt-0.5 block truncate text-[9px] font-medium tracking-[0.2em] text-mist sm:text-[10px] sm:tracking-[0.24em]">
+          <span className="mt-0.5 block truncate text-[12px] font-bold tracking-[0.2em] text-mist sm:text-[13px] sm:tracking-[0.24em]">
             EVENTS &amp; SOLUTIONS
           </span>
         </a>
